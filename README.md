@@ -1,0 +1,3 @@
+# MyBudgety
+Calculate your budget
+
