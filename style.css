@@ -1,0 +1,402 @@
+/* GENERAL */
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	color: #555;
+	font-family: "Open Sans", sans-serif;
+	font-size: 2.5vh;
+	font-weight: 400;
+	height: 100vh;
+	--green: #44ccad;
+	--red: #ff5050;
+	cursor: default;
+	overflow: hidden;
+}
+
+/* TOP */
+
+.top {
+	height: 40vh;
+	background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .4)), url('background.jpg');
+	background-position: center;
+	background-size: cover;
+}
+
+.budget {
+	position: relative;
+	display: inline-block;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: #fff;
+}
+
+.budget__title {
+	text-align: center;
+	font-size: 1.1em;
+	font-weight: 300;
+}
+
+.budget__value {
+	text-align: center;
+	font-size: 3em;
+	font-weight: 300;
+	letter-spacing: .03em;
+	margin-top: .3em;
+	margin-bottom: .4em;
+}
+
+.budget__income,
+.budget__expenses {
+	display: flex;
+	width: 45vh;
+	justify-content: space-between;
+	padding: 0 .75em;
+	text-transform: uppercase;
+	margin: 0 auto;
+}
+
+.budget__income {
+	background-color: var(--green);
+	margin-bottom: .75em;
+}
+
+.budget__expenses {
+	background-color: var(--red);
+}
+
+.budget__income--text,
+.budget__expenses--text {
+	color: #444;
+	font-size: .85em;
+	line-height: 6.5vh;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.right {
+	display: flex;
+	align-items: center;
+}
+
+.budget__income--value,
+.budget__expenses--value {
+	letter-spacing: .03em;
+}
+
+.budget__income--percentage,
+.budget__expenses--percentage {
+	text-align: center;
+	font-size: .7em;
+	padding: .28em .38em;
+	margin-left: .75em;
+	min-width: 2.5em;
+}
+
+.budget__income--percentage {
+	visibility: hidden;
+}
+
+.budget__expenses--percentage {
+	background-color: #ff7474;
+	border-radius: .3em;
+}
+
+
+/* MIDDLE */
+/* ADD */
+
+.add {
+	background-color: #f7f7f7;
+	border-bottom: 1px solid #e7e7e7;
+}
+
+.add__container {
+	display: flex;
+	width: 80vh;
+	justify-content: space-between;
+	align-items: center;
+	position: relative;
+	margin: 0 auto;
+	text-align: center;
+	height: 9vh;
+}
+
+.add__type {
+	border: 1px solid #e7e7e7;
+	border-radius: 5vh;
+	background-color: #fff;
+	font-size: 0.95em;
+	font-weight: 300;
+	width: 6.5vh;
+	height: 6vh;
+	color: inherit;
+	margin-right: 0.6em;
+	transition: border-color .1s linear;
+}
+
+.add__description,
+.add__value {
+	height: 6vh;
+	border: 1px solid #e7e7e7;
+	background-color: #fff;
+	color: inherit;
+	font-family: inherit;
+	font-size: .95em;
+	padding: .5em .7em;
+	border-radius: .35em;
+	margin-right: .6em;
+	transition: border-color .1s linear, background-color .2s linear;
+}
+
+.add__description { width: 37ch; }
+.add__value { width: 12ch; }
+
+::placeholder {
+	color: #aaa;
+}
+
+.add__btn {
+	font-size: 1.7em;
+	width: 5.2vh;
+	line-height: 4.8vh;
+	background: none;
+	border-radius: 2.6vh;
+	border: 1px solid;
+	cursor: pointer;
+	transition: transform .1s, border-color .1s, color .1s linear;
+}
+
+.add__type:focus,
+.add__description:focus,
+.add__value:focus,
+.add__btn:focus {
+	outline: none;
+}
+
+.add__btn:active { transform: translateY(.2vh); }
+
+/* focus green color */
+.add__type:focus,
+.add__description:focus,
+.add__value:focus,
+.add__btn {
+	border: 1px solid var(--green);
+}
+.add__btn { color: var(--green); }
+
+/* focus red color */
+.add__container.red .add__type:focus,
+.add__container.red .add__description:focus,
+.add__container.red .add__value:focus,
+.add__container.red .add__btn {
+	border: 1px solid var(--red);
+}
+.add__container.red .add__btn { color: var(--red); }
+
+
+.invalid,
+.invalid:focus,
+.add__container.red .invalid:focus {
+	background-color: #ffff82;
+	border-color: #ffcc00;
+}
+
+
+/* BOTTOM */
+/* CONTAINER */
+
+.bottom {
+	padding: 0 0;
+	margin: 0;
+	width: 100%;
+	height: 51vh;
+	overflow-y: auto;
+}
+
+.container {
+	display: flex;
+	width: 114vh;
+	margin: 0 auto;
+	justify-content: space-around;
+	margin-bottom: 4vh;
+}
+
+.income, .expenses {
+	width: 52vh;
+}
+
+.hidden {
+	display: none;
+}
+
+/*
+little trick for centering two containers when they are shown alone
+and stick them to the left and right side when they are both shown.
+so, if they both don't have class 'hidden',
+then .expenses floats right and gets left margin
+*/
+/*.income[class="income"] ~ .expenses[class="expenses"] {
+	float: right;
+	margin-left: 6vh;
+}*/
+
+
+h2 {
+	text-transform: uppercase;
+	font-size: 1em;
+	font-weight: 400;
+	margin-left: 0;
+}
+
+.income__title,
+.expenses__title {
+	display: inline-block;
+	padding-top: 4vh;
+	padding-bottom: .5em;
+	width: inherit;
+	position: fixed;
+	z-index: 4;
+	background-color: #fff;
+	border-bottom: 1px solid #e7e7e7;
+}
+
+.income__title { color: var(--green); }
+.expenses__title { color: var(--red); }
+
+.income__list,
+.expenses__list {
+	margin-top: 8.1vh;
+}
+
+/* LIST */
+/* ITEMS */
+
+.item {
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	width: 52vh;
+	height: 2.8em;
+	font-size: 0.85em;
+	font-weight: 400;
+	border-bottom: 1px solid #e7e7e7;
+	padding: 0 1ch;
+}
+
+.item:nth-child(even) { background-color: #f7f7f7; }
+/* we need this assigning of white color for the future wrapper  */
+.item:nth-child(odd) { background-color: #fff; }
+
+.item__description {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	line-height: 2.8em;
+	vertical-align: middle;
+}
+
+.item__text--wrapper {
+	display: flex;
+	align-items: center;
+	z-index: 2;
+	background-color: inherit;
+	transition: transform .2s;
+}
+
+.item__value {
+	letter-spacing: 0.03em;
+}
+
+.item__percentage {
+	min-width: 2.5em;
+	font-size: .7em;
+	padding: .25em .35em;
+	background-color: #ffdada;
+	border-radius: .3em;
+	margin-left: .75em;
+	text-align: center;
+}
+
+.item__delete--btn {
+	/* positioning */
+	position: absolute;
+	right: 1.35vh;
+	top: 50%;
+	transform: translateY(-50%);
+
+	/* styling */
+	font-size: 1.4vh;
+	width: 2.1vh;
+	height: 2.1vh;
+	border-radius: 1.1vh;
+	border: 1px solid;
+	background: none;
+	cursor: pointer;
+	opacity: 0;
+	transition: opacity .2s, transform .1s;
+	z-index: 1;
+}
+
+.item__delete--btn:focus { outline: none; }
+.item__delete--btn:active { transform: translateY(-40%); }
+
+.income .item__value,
+.income .item__delete--btn {
+	color: var(--green);
+}
+.income .item__delete--btn {
+	border-color: var(--green);
+}
+
+.expenses .item__value,
+.expenses .item__percentage,
+.expenses .item__delete--btn {
+	color: var(--red);
+}
+.expenses .item__delete--btn {
+	border-color: var(--red);
+}
+
+
+.item.hover .item__text--wrapper { transform: translateX(-3.3vh); }
+.item.hover .item__delete--btn { opacity: 1; }
+
+
+/* TRIGGERS */
+
+.item__delete--btn__trigger--right {
+	position: absolute;
+	background-color: transparent;
+	right: 0;
+	width: 10%;
+	height: 100%;
+	z-index: -1;
+}
+
+.item__delete--btn__trigger--left {
+	position: absolute;
+	background-color: transparent;
+	left: 0;
+	width: 89%;
+	height: 100%;
+	z-index: -1;
+}
+
+.active {
+	z-index: 3;
+}
+
+
+
+
+
+
+
+
