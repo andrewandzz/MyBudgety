@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Budgety</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+	<div class="top">
+		<div class="budget">
+			<div class="budget__title">
+				<span class="budget__title--text">Available Budget in </span> <span class="budget__title--date">%Date%</span>:
+			</div>
+
+			<div class="budget__value">+0.00</div>
+
+			<div class="budget__income">
+				<div class="budget__income--text">income</div>
+				<div class="right">
+					<div class="budget__income--value">+0.00</div>
+					<div class="budget__income--percentage">---</div>
+				</div>
+			</div>
+
+			<div class="budget__expenses">
+				<div class="budget__expenses--text">expenses</div>
+				<div class="right">
+					<div class="budget__expenses--value">&#8722;0.00</div>
+					<div class="budget__expenses--percentage">---</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="middle">
+		<div class="add">
+			<form class="add__container">
+				<select class="add__type" tabindex="1">
+					<option value="income" selected >+</option>
+					<option value="expense">&#8722;</option>
+				</select>
+				<input type="text" class="add__description" placeholder="Add description" tabindex="2">
+				<input type="number" class="add__value" placeholder="Value" tabindex="3" step=".01" min="0.01" max="9999999.99">
+				<input type="submit" class="add__btn" value="&#10003;" tabindex="4">
+			</form>	
+		</div>
+	</div>
+
+	<div class="bottom">
+		<div class="container">
+
+			<div class="income hidden">
+				<h2 class="income__title">Income</h2>
+				<div class="income__list">
+
+					<!-- <div class="item" id="income-0">
+						<div class="item__description">Sold bicycle Sold bicycle Sold bicycle Sold bicycle Sold bicycle</div>
+						<div class="item__text--wrapper">
+							<div class="item__value">+1,200.00</div>
+						</div>
+						<button class="item__delete--btn">&#10005;</button>
+						<div class="item__delete--btn__trigger--right active"></div>
+						<div class="item__delete--btn__trigger--left"></div>
+					</div> -->
+
+				</div>
+			</div>
+
+			<div class="expenses hidden">
+				<h2 class="expenses__title">Expenses</h2>
+				<div class="expenses__list">
+					
+					<!-- <div class="item" id="expense-0">
+						<div class="item__description">Restraunt Restraunt Restraunte Restraunte Restraunt</div>
+						<div class="item__text--wrapper">
+							<div class="item__value">-478.40</div>
+							<div class="item__percentage">14%</div>
+						</div>
+						<button class="item__delete--btn">&#10005;</button>
+						<div class="item__delete--btn__trigger--right active"></div>
+						<div class="item__delete--btn__trigger--left"></div>
+					</div> -->
+
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+<script type="text/javascript" src="lang.js"></script>
+<script type="text/javascript" src="app.js"></script>
+</body>
+</html>
